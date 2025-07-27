@@ -2,6 +2,8 @@
 
 *Darkly es un proyecto orientado a la introducción en la ciberseguridad web. Consiste en auditar un sitio web vulnerable con el objetivo de aprender a identificar y entender fallos comunes de seguridad. A lo largo del ejercicio se exploran vulnerabilidades reales basadas en el OWASP, como inyecciones, XSS y fallos de control de acceso. Este proyecto busca concienciar sobre los riesgos que enfrentan las aplicaciones en internet y mostrar cómo muchos frameworks modernos mitigan estos problemas de forma automática.*
 
+*La web se encuentra en una ISO llamada Darkly_i365.iso.*   https://cdn.intra.42.fr/isos/Darkly_i386.iso
+
 **Las vulnerabilidades son:**
 
 1. Brute Force Login via GET Parameters
