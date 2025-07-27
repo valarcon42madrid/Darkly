@@ -1,0 +1,8 @@
+1. como todo buen CTF siempre hay un flag relacionado con las cookies, asi que vamos a empezar por lo basico
+2. hacemos curl -s -c cookies.txt http://172.20.10.12/
+3. vemos que en la cookie hay un campo que se llama I_am_admin y al lado unos numeros
+4. como es tradicion pasamos a desencriptar esos numeros por md5 y nos da como resultado false
+5. asi que escribimos true y lo encriptamos como md5 dando b326b5062b2f0e69046810717534cb09
+6. refrescamos la pantalla y nos sale el flag en una ventana de alert
+7. Good job! Flag : df2eb4ba34ed059a1e3e89ff4dfc13445f104a1a52295214def1c4fb1693a5c3
+

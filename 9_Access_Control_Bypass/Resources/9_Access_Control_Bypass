@@ -1,0 +1,16 @@
+1. haciendo inspect html en la pagina principal vemos una pagina oculta con un mobre raro
+http://172.20.10.12/?page=b7e44c7a40c5f80139f0a50f3650fb2bd8d00b0d24667c4c2ca32c88e13b758f
+2. vamos ahi y sale una pagina hablando de los albatros con una foto, hacemos un inspect basico del html
+y vemos que hay un reproductor y un audio, asi que bajamos el audio y empezamos a hacer estenografia, pero sin resultados
+3. seguimos buscando y haciendo inspect vemos unos mensajes que no se muestran visitando la pagina,
+estos dicen que tenemos que venir de la pagina de la nsa y luego que usar el navegador ft_bornToSec nos ayudara mucho
+4. asi que usando un addon para firefox (header editor) cambiamos nuestro href y user agent a los nombrados refrescamos la pagina y nos devuelve el flag
+f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188
+
+5. como nos pide hacerlo sin programas externos utilizamos curl y grep para encontrar el flag dentro del texto
+para versiones modernas curl -s -H "Referer: https://www.nsa.gov/" -H "User-Agent: ft_bornToSec" http://172.20.10.12/index.php?page=b7e44c7a40c5f80139f0a50f3650fb2bd8d00b0d24667c4c2ca32c88e13b758f | grep -i flag
+para 42... curl -s -A "ft_bornToSec" -e "https://www.nsa.gov/" "http://10.11.200.82/index.php?page=b7e44c7a40c5f80139f0a50f3650fb2bd8d00b0d24667c4c2ca32c88e13b758f" | grep -i flag
+
+6. resultado
+
+<center><h2 style="margin-top:50px;"> The flag is : f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188</h2><br/><img src="images/win.png" alt="" width=200px height=200px></center> <audio id="best_music_ever" src="audio/music.mp3"preload="true" loop="loop" autoplay="autoplay">

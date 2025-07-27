@@ -1,0 +1,24 @@
+1. en la pagina de miembros probamos una palabra random en el campo de busqueda, ej test
+2. vemos que la respuesta es Unknown column 'test' in 'where clause'
+esto es la respuesta directamente del motor de SQL, no se esta sanitizando o validando lo que podemos introducir
+3. 
+4. pruebo en el campo 1 AND 1=1 devuelve el contenido de 1
+5. pruebo en el campo 1 AND 1=2 no devuelve nada
+6. el parametro id no esta filtrado, se confirma la vulnerabilidad boolean-based blind
+7. inyectamos manualmente y vemos que la tabla users existe, asi que creamos un script para extraer todas las columnas (inyecSQL.bash)
+8. una vez tenemos todas las columnas extraemos con extractSQL.bash todo el contenido
+9. en una de ellas encontramos esto:
+user_id: 5
+first_name: Flag
+last_name: GetThe
+town: 42
+country: 42
+planet: 42
+Commentaire: Decrypt this password -> then lower all the char. Sha256 on it and it's good !
+countersign: 5ff9d0165b4f92b14994e5c685cdce28
+
+10. el countersign es un hashMD5 que devuelve 'FortyTwo'
+11. pasamos a minusculas, asi que hacemos echo -n fortytwo | sha256sum
+12. el resultado es 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5
+
+

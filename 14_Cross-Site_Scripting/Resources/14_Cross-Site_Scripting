@@ -1,0 +1,25 @@
+FUNDAMENTOS:
+
+La foto desplegable del pollo se podía modificar (en inspect sobre el HTML) y te mostraba lo que le pusieses (si era válido).
+Como usa etiqueta <object> se supone que se pueden cargar más cosas que imágenes.
+Con /?page=media&src=data:text/html,<script>alert('victor');</script> "funcionaba", pero no obteníamos la flag.
+En el navegador se convertía en:
+ http://192.168.1.39/?page=media&src=data:text/html,%3Cscript%3Ealert(%27victor%27);%3C/script%3E
+Después de llorar e investigar caímos en que a veces se usa base64, que es una forma de codificar texto como una cadena larga de letras para que no se rompa al pasarlo por una URL. (Usamos encode de windows y salió la flag a partir de lo generado con <script>alert('victor');</script>
+
+PASOS: 
+
+Acceder a:
+
+http://192.168.1.39/?page=media&src=data:text/html;base64,PHNjcmlwdD5hbGVydCgndmljdG9yJyk7PC9zY3JpcHQ+DQo=
+
+
+RESUMEN:
+
+El sitio incrusta contenido desde el parámetro src.
+
+Si no valida bien qué le mandamos, podemos mandarle código peligroso o personalizado.
+
+Usando una Data URL codificada en base64, conseguimos que el navegador ejecute nuestro código.
+
+Eso es un tipo de XSS (Cross-Site Scripting), donde inyectamos código malicioso en una página vulnerable.

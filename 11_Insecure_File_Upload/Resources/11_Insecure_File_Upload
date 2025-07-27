@@ -1,0 +1,44 @@
+RESUMEN:
+Engañamos al servidor para que aceptara y almacenara un archivo malicioso .php, haciéndole creer que era una imagen .jpg.
+
+FUNDAMENTOS:
+
+Notamos que podíamos subir una "imagen" (script.php.jpg) a web.
+
+El servidor revisa si el archivo que subimos tiene un nombre válido y un tipo de archivo aceptado (como JPG).
+Sin embargo, no valida correctamente el contenido real del archivo. Esto nos da una oportunidad:
+
+Subimos un archivo PHP (un script que puede ejecutar código en el servidor).
+
+Ya solo faltaba solucionar el problema de la extensión real y la fingida...
+
+Le pusimos una “máscara”, haciéndolo pasar por una imagen al declarar su tipo (Content-Type: image/jpeg. Ademas de acabarlo en .jpeg), aunque en realidad era código PHP.
+
+El servidor lo aceptó, lo guardó, y lo dejó accesible públicamente.
+
+Al visitar ese archivo, el servidor lo ejecutó en vez de mostrarlo como imagen, lo cual nos permitió ver la flag.
+
+
+⚠️PASOS:
+
+Descargar en terminal de PC node.js con sus extras:
+
+	npm install form-data node-fetch fs
+
+Poner la dirección correcta en upload_exploit.js y ejecutarlo...
+
+*En Linux hacer tambien:
+
+mv upload_exploit.js upload_exploit.mjs
+node upload_exploit.mjs
+
+
+Esto: Carga un archivo PHP disfrazado de imagen.
+
+	Lo envía al servidor como si fuera un formulario normal.
+
+	Usa una cookie de administrador para evitar restricciones.
+
+	Engaña al sistema para que lo guarde con nombre acabado en .php por formulario y permita su ejecución.
+
+	Imprime la respuesta (donde puede aparecer la flag).

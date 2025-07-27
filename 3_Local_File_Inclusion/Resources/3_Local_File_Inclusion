@@ -1,0 +1,13 @@
+1. en la pagina de search image empezamos a meter comandos, principalmente buscando una vulnerabilidad XSS.
+2. estas no funcionan y lo unico que vemos es que la URL va cambiando
+3. en base a esto probamos distintas url, devolviendo mensajes como "wtf?" o "nope..."
+4. probamos a incluir un archivo ?page=../../../../etc/passwd devuelve el mensaje "Almost" lo que nos dio una pista
+de una posible vulnerabilidad LFI (local file inclusion)
+5. una de las vulnereabilidades de las versiones antiguas de php es null byte injection lo que nos permite sortear la limitacion de la extension
+probamos rutas posibles como ?page=../../../../../../../../flag%00 que devuelve "You can DO it !!!  :]" asi que vimos que estabamos en el
+camino adecuado.
+6. asi que seguimos probando rutas, finalmente ?page=../../../../../../../../etc/passwd%00 devolvio el flag.
+
+recomendaciones:
+actualizar php en versiones modernas el null byte lanza un error
+sanitizar lo que llega por page

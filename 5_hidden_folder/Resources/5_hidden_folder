@@ -1,0 +1,7 @@
+1. empezamos buscando subcarpetas manualmente sin mucho exito
+2. probamos a leer el robots.txt en el encontramos dos directorios, en uno esta la carpeta whatever, con un archivo htpasswd, en el pone root y un hash
+al desencriptarlo encontramos la palabra qwerty123@, ahora mismo no sabemos donde usarlo.
+3. el otro directorio se llama .hidden y tiene un monton de carpetas y subcarpetas con readmes, esto es un clasico de los CTFs
+4. procedemos a descargar mediante un script recursivo todas las carpetas y archivos readme
+5. una vez las tenemos usamos el comando grep -riE 'flag|ctf|root|password|key|token|{.*}|[a-f0-9]{32,}' .hidden_dump para buscar la flag
+6. encontramos la flag : d5eec3ec36cf80dce44a896f961c1831a05526ec215693c8f2c39543497d4466

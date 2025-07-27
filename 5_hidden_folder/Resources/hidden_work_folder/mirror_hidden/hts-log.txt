@@ -1,0 +1,13 @@
+HTTrack3.49-6 launched on Mon, 21 Jul 2025 17:15:00 at http://172.20.10.12/.hidden/ +*.hidden/*
+(httrack http://172.20.10.12/.hidden/ -O ./mirror_hidden -r5 -c1 -%! +*.hidden/* )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+17:15:00	Warning: 	* security warning: !!! BYPASSING SECURITY LIMITS - MONITOR THIS SESSION WITH EXTREME CARE !!!
+17:15:01	Warning: 	Note: due to 172.20.10.12 remote robots.txt rules, links beginning with these path will be forbidden: /whatever, /.hidden (see in the options to disable this)
+
+HTTrack Website Copier/3.49-6 mirror complete in 2 seconds : 2 links scanned, 1 files written (3710 bytes overall) [1289 bytes received at 644 bytes/sec], 3710 bytes transferred using HTTP compression in 1 files, ratio 21%, 2.0 requests per connection
+(No errors, 2 warnings, 0 messages)

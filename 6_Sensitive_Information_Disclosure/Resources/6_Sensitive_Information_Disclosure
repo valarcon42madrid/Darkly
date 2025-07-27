@@ -1,0 +1,7 @@
+1. despues de usar ffuf con un diccionario para encontrar rutas llegamos a la pagina de admin
+2. intentamos utilizar hydra, pero nos da falsos positivos y pese a hacer un script para evitarlo se ve claramente que no es lo esperado
+3. asi que recordamos que en robots.txt habia otro directorio, con un carpeta que contenia un archivo "htpasswd"
+4. ese archivo contiene esto root:437394baff5aa33daa618be47b75cb49
+5. decodificamos 437394baff5aa33daa618be47b75cb49 por MD5 y nos da qwerty123@
+6. asi que lo usamos (http://10.11.200.82/admin/) y nos aparece un flag
+7. d19b4823e0d5600ceed56d5e896ef328d7a2b9e7ac7e80f4fcdb9b10bcb3e7ff

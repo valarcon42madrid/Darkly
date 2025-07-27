@@ -1,0 +1,25 @@
+FUNDAMENTOS:
+Aprovechamos una funcionalidad de redirección que usa el sitio para abrir enlaces externos (como Facebook o Twitter).
+En lugar de redirigir a una red social válida, pusimos un valor inventado (como google) en el parámetro, y... 
+
+PASOS:
+
+añade a la ip base de la web una redirección a dónde quieras-> http://192.168.1.39//index.php?page=redirect&site=
+
+
+¿Qué vulnerabilidad es esta?
+
+Una vulnerabilidad de "Open Redirect" mal implementada. Aunque no redirige como tal, el servidor no controla bien qué valores se pueden pasar, y eso puede:
+
+Mostrar datos sensibles (como una flag).
+
+Facilitar ataques de phishing (redirigir a sitios falsos).
+
+¿Por qué es peligroso?
+
+Un atacante puede enviar a alguien un enlace como:
+
+http://IP-WEB-CONFIABLE/index.php?page=redirect&site=evil.com
+La víctima confía en el dominio, hace clic... y termina en una falsa página de inicio de sesión.
+
+Así, el atacante roba sus credenciales u otra información.

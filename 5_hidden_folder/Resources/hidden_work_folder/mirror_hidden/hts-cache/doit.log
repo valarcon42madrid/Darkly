@@ -1,0 +1,8 @@
+http://172.20.10.12/.hidden/ -O ./mirror_hidden -r5 -c1 -%! +*.hidden/*
+File generated automatically on Mon, 21 Jul 2025 17:15:00, do NOT edit
+
+To update a mirror, just launch httrack without any parameters
+The existing cache will be used (and modified)
+To have other options, retype all parameters and launch HTTrack
+To continue an interrupted mirror, just launch httrack without any parameters
+

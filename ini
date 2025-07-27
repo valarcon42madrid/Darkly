@@ -1,0 +1,4 @@
+whatweb http://172.20.10.12/
+http://172.20.10.12/ [200 OK] Cookies[I_am_admin], Country[RESERVED][ZZ], HTML5, HTTPServer[Ubuntu Linux][nginx/1.4.6 (Ubuntu)], IP[172.20.10.12], JQuery, PHP[5.5.9-1ubuntu4.29], Script, Title[BornToSec - Web Section], X-Powered-By[PHP/5.5.9-1ubuntu4.29], nginx[1.4.6]
+
+
