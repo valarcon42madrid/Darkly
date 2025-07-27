@@ -60,11 +60,14 @@ Los parámetros de usuario se insertan directamente en consultas SQL sin sanitiz
 
 14. Cross-Site Scripting (XSS) mediante inyección en <object> con data: URI
 
+
 El atacante inserta un data:text/html,<script>... dentro del atributo data de una etiqueta <object>, que el navegador interpreta como HTML, ejecutando JavaScript arbitrario (XSS).
 
 15. Cross-Site Scripting mediante Stored XSS
 
 Stored XSS ocurre cuando una aplicación web almacena datos introducidos por un usuario sin sanitizarlos (por ejemplo, en una base de datos), y luego los muestra en una página web sin escapar el contenido HTML o JavaScript, permitiendo así la ejecución de scripts maliciosos cuando otros usuarios acceden a esa página.
+
+
 
 ----------------------------------------------------
 
